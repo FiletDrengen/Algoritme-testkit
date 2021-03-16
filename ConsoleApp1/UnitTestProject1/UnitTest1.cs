@@ -11,32 +11,34 @@ namespace UnitTestProject1
         [TestMethod]
         public void BubbleSort()
         {
-            List<int> arr = new List<int> { 40, 1, 2, 5, 100, 2, 34, 4, 0, 2 };
-            List<int> sor = new List<int> { 0, 1, 2, 2, 2, 4, 5, 34, 40, 100 };
+            List<int> arr = new List<int> { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
+            List<int> sor = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
             List<int> result = Program.Bubblesort(arr);
 
-            Assert.AreEqual(sor, result, "Ikke sorteret");
+            CollectionAssert.AreEqual(result, sor, "Ikke sorteret");
         }
 
+        [TestMethod]
         public void QuickSort()
         {
-            List<int> arr = new List<int> { 40, 1, 2, 5, 100, 2, 34, 4, 0, 2 };
-            List<int> sor = new List<int> { 0, 1, 2, 2, 2, 4, 5, 34, 40, 100 };
+            List<int> arr = new List<int> { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
+            List<int> sor = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
             List<int> result = Program.Quick(arr);
 
-            Assert.AreEqual(sor, result, "Ikke sorteret");
+            CollectionAssert.AreEqual(result, sor, "Ikke sorteret");
         }
 
+        [TestMethod]
         public void Insertionsort()
         {
-            List<int> arr = new List<int> { 40, 1, 2, 5, 100, 2, 34, 4, 0, 2 };
-            List<int> sor = new List<int> { 0, 1, 2, 2, 2, 4, 5, 34, 40, 100 };
+            List<int> arr = new List<int> { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
+            List<int> sor = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
             List<int> result = Program.Insertionsort(arr);
 
-            Assert.AreEqual(sor, result, "Ikke sorteret");
+            CollectionAssert.AreEqual(result, sor, "Ikke sorteret");
         }
     }
 }
