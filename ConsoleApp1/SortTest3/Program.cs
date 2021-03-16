@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace SortTest3
 {
     public class Program
     {
@@ -12,7 +12,40 @@ namespace ConsoleApp1
         {
         }
 
-        public static List<int> bubblesort(List<int> numbers)
+        public static List<int> Quick(List<int> n)
+        {
+            if (n.Count <= 1)
+            {
+                return n;
+            }
+
+            int pivot = n[0];
+
+            List<int> b = new List<int>();
+            List<int> a = new List<int>();
+
+            for (int i = 1; i < n.Count; i++)
+            {
+                if (n[i] < pivot)
+                {
+                    b.Add(n[i]);
+                }
+                else
+                {
+                    a.Add(n[i]);
+                }
+            }
+
+            List<int> r = new List<int>();
+
+            r.AddRange(Quick(b));
+            r.Add(pivot);
+            r.AddRange(Quick(a));
+
+            return r;
+        }
+
+        public static List<int> Bubblesort(List<int> numbers)
         {
             int temp;
 
@@ -47,39 +80,6 @@ namespace ConsoleApp1
                 }
             }
             return numbers;
-        }
-
-        public static List<int> Quick(List<int> n)
-        {
-            if (n.Count <= 1)
-            {
-                return n;
-            }
-
-            int pivot = n[0];
-
-            List<int> b = new List<int>();
-            List<int> a = new List<int>();
-
-            for (int i = 1; i < n.Count; i++)
-            {
-                if (n[i] < pivot)
-                {
-                    b.Add(n[i]);
-                }
-                else
-                {
-                    a.Add(n[i]);
-                }
-            }
-
-            List<int> r = new List<int>();
-
-            r.AddRange(Quick(b));
-            r.Add(pivot);
-            r.AddRange(Quick(a));
-
-            return r;
         }
     }
 }
